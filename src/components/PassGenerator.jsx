@@ -4,39 +4,19 @@ import generatePassword from '../generatePassword';
 
 export default function PassGenerator() {
   const [opts, setOpts] = useState({
-    isReverseDictOptimized: true,
     isDictOptimized: false,
+    isBothOptimized: false,
     isUppercased: false,
     isLeeted: false,
-    isBothOptimized: false,
   });
   const [generatedPassword, setGeneratedPassword] = useState('');
 
   function handleOnChange(name) {
     if (name === 'isBothOptimized') {
-      if (opts.isBothOptimized) {
-        setOpts({
-          ...opts,
-          isBothOptimized: false,
-          isReverseDictOptimized: true,
-          isDictOptimized: false,
-        });
-      } else {
-        setOpts({
-          ...opts,
-          isBothOptimized: true,
-          isReverseDictOptimized: true,
-          isDictOptimized: true,
-        });
-      }
-    } else if (
-      name === 'isDictOptimized' ||
-      name === 'isReverseDictOptimized'
-    ) {
       setOpts({
         ...opts,
-        isReverseDictOptimized: !opts.isReverseDictOptimized,
-        isDictOptimized: !opts.isDictOptimized,
+        isBothOptimized: !opts.isBothOptimized,
+        isDictOptimized: !opts.isBothOptimized,
       });
     } else {
       setOpts({ ...opts, [name]: !opts[name] });
@@ -47,8 +27,8 @@ export default function PassGenerator() {
     evt.preventDefault();
     setGeneratedPassword(
       generatePassword(
-        opts.isReverseDictOptimized,
         opts.isDictOptimized,
+        opts.isBothOptimized,
         opts.isUppercased,
         opts.isLeeted
       )
@@ -59,8 +39,8 @@ export default function PassGenerator() {
     <div>
       <form onSubmit={(evt) => handleOnSubmit(evt)} className="flex flex-col">
         <Checkbox
-          value={opts.isReverseDictOptimized}
-          name="isReverseDictOptimized"
+          value={opts.isBothOptimized || !opts.isDictOptimized}
+          name="isDictOptimized"
           desc="Optimize for Reverse Dictionary Attacks"
           long_desc="By optimizing your password for reverse dictionary attacks, you allow other users to be hacked first. Outrunning the slowest of the group and whatnot."
           handleOnChange={handleOnChange}

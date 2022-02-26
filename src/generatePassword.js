@@ -8,13 +8,13 @@ let leetSpeakList = {
 };
 
 let generatePassword = (
-  isReverseDictOptimized,
   isDictOptimized,
+  isBothOptimized,
   isUppercased,
   isLeeted
 ) => {
   let password = 'aardvark';
-  if (isReverseDictOptimized && isDictOptimized) {
+  if (isBothOptimized) {
     let midAlphabet = ['m', 'n'];
     password = midAlphabet[Math.round(Math.random())] + password;
   } else if (isDictOptimized) {
