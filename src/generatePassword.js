@@ -10,8 +10,8 @@ let leetSpeakList = {
 let generatePassword = (
   isReverseDictOptimized,
   isDictOptimized,
-  isLeeted,
-  isUppercased
+  isUppercased,
+  isLeeted
 ) => {
   let password = 'aardvark';
   if (isReverseDictOptimized && isDictOptimized) {

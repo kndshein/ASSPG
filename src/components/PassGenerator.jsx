@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Checkbox from './Checkbox';
+import generatePassword from '../generatePassword';
 
 export default function PassGenerator() {
   const [opts, setOpts] = useState({
@@ -8,14 +9,27 @@ export default function PassGenerator() {
     isUppercased: false,
     isLeeted: false,
   });
+  const [generatedPassword, setGeneratedPassword] = useState('');
 
   function handleOnChange(name) {
     setOpts({ ...opts, [name]: !opts[name] });
   }
 
+  function handleOnSubmit(evt) {
+    evt.preventDefault();
+    setGeneratedPassword(
+      generatePassword(
+        opts.isReverseDictOptimized,
+        opts.isDictOptimized,
+        opts.isUppercased,
+        opts.isLeeted
+      )
+    );
+  }
+
   return (
     <div>
-      <form>
+      <form onSubmit={(evt) => handleOnSubmit(evt)}>
         <Checkbox
           value={opts.isReverseDictOptimized}
           name="isReverseDictOptimized"
@@ -40,7 +54,9 @@ export default function PassGenerator() {
           desc="Leet speak your password so AI robots cannot decipher it"
           handleOnChange={handleOnChange}
         />
+        <button type="submit">Submit</button>
       </form>
+      <p>{generatedPassword}</p>
     </div>
   );
 }
