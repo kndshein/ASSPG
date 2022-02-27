@@ -47,9 +47,9 @@ export default function Button({
         style={{ borderColor: disabled && 'lightgrey' }}
       >
         <button
-          className={`h-10 w-10 p-3 m-1 rounded-md transition ease-in-out ${
+          className={`h-10 w-10 p-3 m-1 rounded-md transition ease-in-out  ${
             value && `bg-gradient-to-r ${colorConfig[name].gradient}`
-          } ${!disabled && 'hover:shadow-lg'}`}
+          } ${!disabled && 'hover:shadow-md active:shadow-inner'}`}
           style={{
             backgroundColor: disabled && 'lightgrey',
             backgroundImage: disabled && 'none',
