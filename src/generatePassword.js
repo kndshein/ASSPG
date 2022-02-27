@@ -22,12 +22,12 @@ let generatePassword = (
   }
   password = password
     .split('')
-    .map((digit) => {
+    .map((digit, index) => {
       let replaceBank = [digit];
       if (isUppercased) {
         replaceBank.push(digit.toUpperCase());
       }
-      if (isLeeted) {
+      if (index !== 0 && isLeeted) {
         replaceBank = replaceBank.concat(leetSpeakList[digit] || []);
       }
       return digit.replace(

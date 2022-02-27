@@ -17,14 +17,21 @@ export default function PassGenerator() {
   const [opts, setOpts] = useState({
     isDictOptimized: false,
     isBothOptimized: false,
-    isUppercased: false,
+    isUppercased: true,
     isLeeted: false,
   });
   const [submitGradient, setSubmitGradient] = useState({
     color: 'rgb(251, 113, 133)',
     gradient: '',
   });
-  const [generatedPassword, setGeneratedPassword] = useState('aardvark');
+  const [generatedPassword, setGeneratedPassword] = useState(
+    generatePassword(
+      opts.isDictOptimized,
+      opts.isBothOptimized,
+      opts.isUppercased,
+      opts.isLeeted
+    )
+  );
 
   useEffect(() => {
     setSubmitGradient(generateGradient(opts, colorChart));
