@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import Button from './Button';
 import generatePassword from '../generatePassword';
 import generateGradient from '../generateGradient';
+import { IconContext } from 'react-icons';
+import { HiOutlineClipboardCopy } from 'react-icons/hi';
 
 let colorChart = {
   isReversedOptimized: 'rgb(251, 113, 133)',
@@ -55,7 +57,7 @@ export default function PassGenerator() {
 
   return (
     <div className="flex flex-col max-w-2xl">
-      <p className="m-4 mb-2 text-2xl text-center bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 mb-2 font-semibold">
+      <p className="m-4 mb-2 mt-0 text-2xl text-center bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 font-semibold">
         Aardvark Secure Secret Password Generator
       </p>
       <div className="border-2 border-sky-400 p-2 m-4 mt-0 rounded-lg">
@@ -115,8 +117,16 @@ export default function PassGenerator() {
       >
         Generate Password
       </button>
-      <div className="flex justify-center items-center h-16 w-100 rounded-lg mx-4 bg-gray-200">
+      <div className="relative flex justify-center items-center h-16 w-100 rounded-lg mx-4 bg-gray-200">
         <p className="animate-pulse text-2xl">{generatedPassword}</p>
+        <IconContext.Provider value={{ color: 'grey', className: 'h-6 w-6' }}>
+          <button
+            onClick={() => navigator.clipboard.writeText(generatedPassword)}
+            className="absolute right-4 p-2 rounded-lg hover:bg-gray-100 active:bg-gray-300"
+          >
+            <HiOutlineClipboardCopy className="h-100 w-100" />
+          </button>
+        </IconContext.Provider>
       </div>
       <p className="ml-4 mt-1 text-left opacity-25 italic text-sm">
         * Remember your password by simply memorizing it.
