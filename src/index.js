@@ -8,8 +8,9 @@ import AboutPage from './components/AboutPage';
 render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/about" element={<AboutPage />} />
+      <Route path="/" element={<App />}>
+        <Route path="about" element={<AboutPage />} />
+      </Route>
     </Routes>
   </BrowserRouter>,
   document.getElementById('root')

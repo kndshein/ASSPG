@@ -69,7 +69,7 @@ export default function PassGenerator() {
             value={opts.isDictOptimized}
             name="isDictOptimized"
             desc="Optimize for Regular Dictionary Attacks"
-            long_desc="Sometimes it is better to simply brace for regular dictionary attacks. We can barely understand regular dictionary attacks, why bother with the reverse?"
+            long_desc="Sometimes it is better to simply brace for what's common. We can barely understand regular dictionary attacks, why bother with the reverse?"
             handleOnClick={handleOnClick}
             disabled={opts.isBothOptimized}
           />
@@ -77,7 +77,7 @@ export default function PassGenerator() {
           <Button
             value={opts.isBothOptimized}
             name="isBothOptimized"
-            desc="Optimize for Both types of Dictionary Attacks"
+            desc="Optimize for both types of Dictionary Attacks"
             long_desc="Things are best when used in moderation -- or so we tell ourselves. This is for those of us out there who enjoy the idea of commitment without actually committing."
             handleOnClick={handleOnClick}
           />
@@ -87,7 +87,8 @@ export default function PassGenerator() {
             value={opts.isUppercased}
             name="isUppercased"
             desc="Include Uppercase Letters"
-            long_desc="Uppercase some letters for better security while using the same character so it's easier to remember, lest we forget."
+            long_desc="Uppercase some letters for better security, but because it's still the same character, they're easier to remember."
+            example="AARDVARKSARENOTPIGS"
             handleOnClick={handleOnClick}
           />
         </div>
@@ -98,18 +99,19 @@ export default function PassGenerator() {
             name="isLeeted"
             desc="Include Leeted Letters"
             long_desc="Leet speak your password so AI robots can't read it. Post your leeted password on Tumblr for massive street creds."
+            example="i, l, 1, L, o, 0, O"
             handleOnClick={handleOnClick}
           />
         </div>
         <button
-          className={`rounded-lg m-4 mt-0 p-2 font-bold text-white transition ease-in-out`}
+          className={`rounded-lg m-4 mt-0 p-2 py-4 font-bold text-lg text-white transition ease-in-out hover:shadow-lg active:shadow-none active:scale-95`}
           onClick={() => handleOnSubmit()}
           style={{
             backgroundColor: submitGradient.color,
             backgroundImage: submitGradient.gradient,
           }}
         >
-          Submit
+          Generate Password
         </button>
       </div>
       <p>{generatedPassword}</p>

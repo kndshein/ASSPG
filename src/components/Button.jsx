@@ -5,6 +5,7 @@ export default function Button({
   long_desc,
   handleOnClick,
   disabled,
+  example,
 }) {
   const colorConfig = {
     isReverseOptimized: {
@@ -67,6 +68,7 @@ export default function Button({
           {desc}
         </p>
         <p className="text-gray-400">{long_desc}</p>
+        {example && <p className="text-gray-400 italic">Examples: {example}</p>}
       </section>
     </section>
   );
