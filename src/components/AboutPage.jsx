@@ -2,22 +2,23 @@ import profiles from '../aboutProfiles';
 
 export default function AboutPage() {
   return (
-    <div className="max-w-2xl m-auto">
+    <div className="max-w-2xl m-auto text-lg">
       <h4 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 mb-2">
         Our History
       </h4>
       <p className="mb-8">
         After having our cybersecurity firm being hacked into for the fifth time
         in 3 months, we realized that using the string 'password' as our
-        database's password is no longer cutting it. So, we set out on a mission
-        to build a password generating service that we would be proud to call
-        someone else's. In fact, that's what we did -- we called somebody. We
-        reached out to our aforementioned hackers and inquired about their
+        database's password is no longer cutting it in 2022. So, we set out on a
+        mission to build a password generating service that we would be proud to
+        call someone else's. In fact, that's what we did -- we called somebody.
+        We reached out to our aforementioned hackers and inquired about their
         process behind their work. By having their perspective, we were able to
         understand the ins-and-outs of today's cybersecurity industry trends. We
         then teamed up to provide a service, leveraging our synergy as hacker
-        and hackee -- they provide consultations on how to better secure our
-        systems, and we in turn provide them our users' data. It's a win-win!
+        and hackee -- they consult us on how to better secure our systems (such
+        as not using 'password' as our master password), and we in turn provide
+        them our users' data. It's a win-win!
       </p>
       <h4 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 mb-2">
         Our Product
@@ -27,16 +28,16 @@ export default function AboutPage() {
         receive an industry-leading secured password produced by our AI's
         artificial neural network hybrid-cloud blockchain engine. The generated
         passwords have been tested vigorously -- from regression to taste tests
-        -- we employ the use of cutting-edge technology wherever possible. It
-        has been statistically proven that compared to an average user,
-        ASSPG-ers' information are the least penetrated by most hacking methods.
-        Once you've been onboarded as an ASSPG-er, you will not only receive a
-        lifetime of backend support, but also receive access to our Discord
-        server. Take care of your private systems, become an ASSPG-er today!
+        -- we employ the use of cutting-edge technology whenever and wherever
+        possible. It has been statistically proven that compared to an average
+        user, ASSPG-ers' information are the least penetrated by most hacking
+        methods. Once you've been onboarded as an ASSPG-er, you will not only
+        receive a lifetime of backend support, but also obtain access to our
+        Discord server. Take care of your private systems, become an ASSPG-er
+        today!
       </p>
-
       <h4 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 mb-4">
-        Our Backgrounds
+        Our Background
       </h4>
       <ul className="flex flex-wrap">
         {profiles.map((content, idx) => {

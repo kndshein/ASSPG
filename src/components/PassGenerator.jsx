@@ -118,7 +118,7 @@ export default function PassGenerator() {
         Generate Password
       </button>
       <div className="relative flex justify-center items-center h-16 w-100 rounded-lg mx-4 bg-gray-200">
-        <p className="animate-pulse text-2xl">{generatedPassword}</p>
+        <p className="animate-pulse text-2xl font-mono">{generatedPassword}</p>
         <IconContext.Provider value={{ color: 'grey', className: 'h-6 w-6' }}>
           <button
             onClick={() => navigator.clipboard.writeText(generatedPassword)}

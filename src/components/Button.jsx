@@ -68,7 +68,7 @@ export default function Button({
           {desc}
         </p>
         <p className="text-gray-400">{long_desc}</p>
-        {example && <p className="text-gray-400 italic">Examples: {example}</p>}
+        {example && <p className="text-gray-500 italic">Examples: {example}</p>}
       </section>
     </section>
   );
