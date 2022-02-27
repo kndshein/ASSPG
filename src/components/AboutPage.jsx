@@ -39,13 +39,14 @@ export default function AboutPage() {
         Our Backgrounds
       </h4>
       <ul className="flex flex-wrap">
-        {profiles.map((content) => {
+        {profiles.map((content, idx) => {
           return (
-            <li className="flex flex-col mb-8 p-4 mw-24">
+            <li key={idx} className="flex flex-col mb-8 p-4 mw-24">
               <div className="h-24 w-24 rounded-full overflow-hidden">
                 <img
                   className="h-full w-full object-cover object-center"
                   src={`/images/${content.image}`}
+                  alt={content.name}
                 />
               </div>
               <div className="text-sky-700 font-semibold text-lg">
