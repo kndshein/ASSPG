@@ -1,6 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from './Button';
 import generatePassword from '../generatePassword';
+import generateGradient from '../generateGradient';
+
+let colorChart = {
+  isReversedOptimized: 'rgb(251, 113, 133)',
+  isDictOptimized: 'rgb(56, 189, 248)',
+  isBothOptimized: 'rgb(167, 139, 250)',
+  isUppercased: 'rgb(250, 204, 21)',
+  isLeeted: 'rgb(52, 211, 153)',
+};
 
 export default function PassGenerator() {
   const [opts, setOpts] = useState({
@@ -9,7 +18,15 @@ export default function PassGenerator() {
     isUppercased: false,
     isLeeted: false,
   });
+  const [submitGradient, setSubmitGradient] = useState({
+    color: 'rgb(251, 113, 133)',
+    gradient: '',
+  });
   const [generatedPassword, setGeneratedPassword] = useState('');
+
+  useEffect(() => {
+    setSubmitGradient(generateGradient(opts, colorChart));
+  }, [opts]);
 
   function handleOnClick(name) {
     if (name === 'isBothOptimized') {
@@ -84,7 +101,16 @@ export default function PassGenerator() {
             handleOnClick={handleOnClick}
           />
         </div>
-        <button onClick={() => handleOnSubmit()}>Submit</button>
+        <button
+          className={`rounded-lg m-4 mt-0 p-2 font-bold text-white transition ease-in-out`}
+          onClick={() => handleOnSubmit()}
+          style={{
+            backgroundColor: submitGradient.color,
+            backgroundImage: submitGradient.gradient,
+          }}
+        >
+          Submit
+        </button>
       </div>
       <p>{generatedPassword}</p>
     </>
