@@ -55,7 +55,7 @@ export default function PassGenerator() {
 
   return (
     <>
-      <div className="flex flex-col max-w-xl">
+      <div className="flex flex-col max-w-2xl">
         <div className="border-2 border-sky-400 p-2 m-4 mt-0 rounded-lg">
           <Button
             value={opts.isBothOptimized || !opts.isDictOptimized}
