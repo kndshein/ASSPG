@@ -6,7 +6,7 @@ import AboutPage from './components/AboutPage';
 function App() {
   return (
     <>
-      <nav className="flex justify-center items-center gap-8 p-4 mb-8">
+      <nav className="flex justify-center items-center gap-8 p-4 mb-2">
         <NavLink
           className={({ isActive }) => {
             return `uppercase ${
@@ -19,9 +19,7 @@ function App() {
         >
           Engine
         </NavLink>
-        <div>
-          <h1 className="text-3xl font-bold text-center">ASSPG</h1>
-        </div>
+        <h1 className="text-3xl font-bold text-center">ASSPG</h1>
         <NavLink
           className={({ isActive }) => {
             return `uppercase ${
