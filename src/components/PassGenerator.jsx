@@ -18,6 +18,8 @@ export default function PassGenerator() {
         isBothOptimized: !opts.isBothOptimized,
         isDictOptimized: !opts.isBothOptimized,
       });
+    } else if (name === 'isReverseOptimized') {
+      setOpts({ ...opts, isDictOptimized: !opts.isDictOptimized });
     } else {
       setOpts({ ...opts, [name]: !opts[name] });
     }
@@ -35,48 +37,56 @@ export default function PassGenerator() {
   }
 
   return (
-    <div>
-      <div className="flex flex-col">
-        <Button
-          value={opts.isBothOptimized || !opts.isDictOptimized}
-          name="isDictOptimized"
-          desc="Optimize for Reverse Dictionary Attacks"
-          long_desc="By optimizing your password for reverse dictionary attacks, you allow other users to be hacked first. Outrunning the slowest of the group and whatnot."
-          handleOnClick={handleOnClick}
-          disabled={opts.isBothOptimized}
-        />
-        <Button
-          value={opts.isDictOptimized}
-          name="isDictOptimized"
-          desc="Optimize for Regular Dictionary Attacks"
-          long_desc="Sometimes it is better to simply brace for regular dictionary attacks. We can barely understand what regular dictionary attacks are, why bother reversing it?"
-          handleOnClick={handleOnClick}
-          disabled={opts.isBothOptimized}
-        />
-        <Button
-          value={opts.isBothOptimized}
-          name="isBothOptimized"
-          desc="Optimize for Both types of Dictionary Attacks"
-          long_desc="Things are best when used in moderation, so we have provided you with the worst of both worlds"
-          handleOnClick={handleOnClick}
-        />
-        <Button
-          value={opts.isUppercased}
-          name="isUppercased"
-          desc="Include Uppercase Letters"
-          long_desc="Uppercase some letters for better security while looking the same so you don't forget it"
-          handleOnClick={handleOnClick}
-        />
-        <Button
-          value={opts.isLeeted}
-          name="isLeeted"
-          desc="Include Leeted Letters"
-          long_desc="Leet speak your password so AI robots have a harder time deciphering it"
-          handleOnClick={handleOnClick}
-        />
+    <>
+      <div className="flex flex-col max-w-xl">
+        <div className="border-2 border-sky-400 p-2 m-4 mt-0 rounded-lg">
+          <Button
+            value={opts.isBothOptimized || !opts.isDictOptimized}
+            name="isReverseOptimized"
+            desc="Optimize for Reverse Dictionary Attacks"
+            long_desc="By optimizing your password for reverse dictionary attacks, you allow other users to be hacked first. Outrunning the slowest of the group and whatnot."
+            handleOnClick={handleOnClick}
+            disabled={opts.isBothOptimized}
+          />
+          <Button
+            value={opts.isDictOptimized}
+            name="isDictOptimized"
+            desc="Optimize for Regular Dictionary Attacks"
+            long_desc="Sometimes it is better to simply brace for regular dictionary attacks. We can barely understand regular dictionary attacks, why bother with the reverse?"
+            handleOnClick={handleOnClick}
+            disabled={opts.isBothOptimized}
+          />
+          <hr className="border-gray-400 m-2" />
+          <Button
+            value={opts.isBothOptimized}
+            name="isBothOptimized"
+            desc="Optimize for Both types of Dictionary Attacks"
+            long_desc="Things are best when used in moderation -- or so we tell ourselves. This is for those of us out there who enjoy the idea of commitment without actually committing."
+            handleOnClick={handleOnClick}
+          />
+        </div>
+        <div className="border-2 border-sky-400 p-2 m-4 mt-0 rounded-lg">
+          <Button
+            value={opts.isUppercased}
+            name="isUppercased"
+            desc="Include Uppercase Letters"
+            long_desc="Uppercase some letters for better security while using the same character so it's easier to remember, lest we forget."
+            handleOnClick={handleOnClick}
+          />
+        </div>
+        <div className="border-2 border-sky-400 p-2 m-4 mt-0 rounded-lg">
+          <Button
+            className="border-emerald-400"
+            value={opts.isLeeted}
+            name="isLeeted"
+            desc="Include Leeted Letters"
+            long_desc="Leet speak your password so AI robots can't read it. Post your leeted password on Tumblr for massive street creds."
+            handleOnClick={handleOnClick}
+          />
+        </div>
         <button onClick={() => handleOnSubmit()}>Submit</button>
       </div>
       <p>{generatedPassword}</p>
-    </div>
+    </>
   );
 }
