@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Checkbox from './Checkbox';
+import Button from './Button';
 import generatePassword from '../generatePassword';
 
 export default function PassGenerator() {
@@ -11,7 +11,7 @@ export default function PassGenerator() {
   });
   const [generatedPassword, setGeneratedPassword] = useState('');
 
-  function handleOnChange(name) {
+  function handleOnClick(name) {
     if (name === 'isBothOptimized') {
       setOpts({
         ...opts,
@@ -23,8 +23,7 @@ export default function PassGenerator() {
     }
   }
 
-  function handleOnSubmit(evt) {
-    evt.preventDefault();
+  function handleOnSubmit() {
     setGeneratedPassword(
       generatePassword(
         opts.isDictOptimized,
@@ -37,46 +36,46 @@ export default function PassGenerator() {
 
   return (
     <div>
-      <form onSubmit={(evt) => handleOnSubmit(evt)} className="flex flex-col">
-        <Checkbox
+      <div className="flex flex-col">
+        <Button
           value={opts.isBothOptimized || !opts.isDictOptimized}
           name="isDictOptimized"
           desc="Optimize for Reverse Dictionary Attacks"
           long_desc="By optimizing your password for reverse dictionary attacks, you allow other users to be hacked first. Outrunning the slowest of the group and whatnot."
-          handleOnChange={handleOnChange}
+          handleOnClick={handleOnClick}
           disabled={opts.isBothOptimized}
         />
-        <Checkbox
+        <Button
           value={opts.isDictOptimized}
           name="isDictOptimized"
           desc="Optimize for Regular Dictionary Attacks"
-          long_desc="Sometimes it is better to simply brace for regular dictionary attacks. We barely understand what regular dictionary attacks are, why reverse it?"
-          handleOnChange={handleOnChange}
+          long_desc="Sometimes it is better to simply brace for regular dictionary attacks. We can barely understand what regular dictionary attacks are, why bother reversing it?"
+          handleOnClick={handleOnClick}
           disabled={opts.isBothOptimized}
         />
-        <Checkbox
+        <Button
           value={opts.isBothOptimized}
           name="isBothOptimized"
           desc="Optimize for Both types of Dictionary Attacks"
-          long_desc="Sometimes it is better to simply brace for regular dictionary attacks. We barely understand what regular dictionary attacks are, why reverse it?"
-          handleOnChange={handleOnChange}
+          long_desc="Things are best when used in moderation, so we have provided you with the worst of both worlds"
+          handleOnClick={handleOnClick}
         />
-        <Checkbox
+        <Button
           value={opts.isUppercased}
           name="isUppercased"
           desc="Include Uppercase Letters"
           long_desc="Uppercase some letters for better security while looking the same so you don't forget it"
-          handleOnChange={handleOnChange}
+          handleOnClick={handleOnClick}
         />
-        <Checkbox
+        <Button
           value={opts.isLeeted}
           name="isLeeted"
           desc="Include Leeted Letters"
           long_desc="Leet speak your password so AI robots have a harder time deciphering it"
-          handleOnChange={handleOnChange}
+          handleOnClick={handleOnClick}
         />
-        <button type="submit">Submit</button>
-      </form>
+        <button onClick={() => handleOnSubmit()}>Submit</button>
+      </div>
       <p>{generatedPassword}</p>
     </div>
   );
