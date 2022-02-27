@@ -60,7 +60,7 @@ export default function Button({
       </div>
       <section className="flex flex-col">
         <p
-          className={`font-bold ${
+          className={`font-bold text-lg ${
             value ? `${colorConfig[name].textColor}` : 'text-gray-500'
           }`}
           style={{ color: disabled && 'lightgrey' }}
@@ -68,7 +68,9 @@ export default function Button({
           {desc}
         </p>
         <p className="text-gray-400">{long_desc}</p>
-        {example && <p className="text-gray-500 italic">Examples: {example}</p>}
+        {example && (
+          <p className="text-gray-500 italic mt-0.5">Examples: {example}</p>
+        )}
       </section>
     </section>
   );

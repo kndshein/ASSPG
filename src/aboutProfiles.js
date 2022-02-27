@@ -45,7 +45,7 @@ let profiles = [
     name: 'Kaung',
     position: "Intern's Intern",
     image: 'Nick4.jpg',
-    desc: 'Well, someone has to fetch coffee for the intern.',
+    desc: 'Well, somebody has to fetch coffee for the intern.',
   },
 ];
 

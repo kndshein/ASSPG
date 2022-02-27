@@ -39,10 +39,13 @@ export default function AboutPage() {
       <h4 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 mb-4">
         Our Background
       </h4>
-      <ul className="flex flex-wrap">
+      <ul className="flex flex-wrap gap-6">
         {profiles.map((content, idx) => {
           return (
-            <li key={idx} className="flex flex-col mb-8 p-4 mw-24">
+            <li
+              key={idx}
+              className="flex flex-col p-6 basis-80 bg-gray-100 rounded-lg"
+            >
               <div className="h-24 w-24 rounded-full overflow-hidden">
                 <img
                   className="h-full w-full object-cover object-center"
@@ -50,11 +53,11 @@ export default function AboutPage() {
                   alt={content.name}
                 />
               </div>
-              <div className="text-sky-700 font-semibold text-lg">
+              <div className="text-sky-700 font-semibold text-lg mt-4">
                 {content.name}
               </div>
-              <div className="text-gray-400">{content.position}</div>
-              <div>{content.desc}</div>
+              <div className="text-gray-400 italic">{content.position}</div>
+              <div className="text-md">{content.desc}</div>
             </li>
           );
         })}
