@@ -5,6 +5,7 @@ let leetSpeakList = {
   m: ['[V]', '(V)', '1v1', ']V[', '|V|', 'AA', '^^', '|Y|', 'м'],
   n: ['И', '/V', 'ท', 'п'],
   r: ['Я', '®'],
+  v: ['Ṽ', 'Ṿ', 'ⓥ']
 };
 
 let generatePassword = (
@@ -27,8 +28,8 @@ let generatePassword = (
       if (isUppercased) {
         replaceBank.push(digit.toUpperCase());
       }
-      if (index !== 0 && isLeeted) {
-        replaceBank = replaceBank.concat(leetSpeakList[digit] || []);
+      if (index !== 0 && isLeeted && Math.random() < 0.34) {
+        replaceBank = leetSpeakList[digit];
       }
       return digit.replace(
         digit,
