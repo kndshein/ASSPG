@@ -1,4 +1,4 @@
-import PassGenerator from './PassGenerator';
+import PassGenerator from '../components/PassGenerator';
 
 export default function EnginePage() {
   return (

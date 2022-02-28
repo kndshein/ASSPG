@@ -1,4 +1,4 @@
-export default function Button({
+export default function Checkbox({
   value,
   name,
   desc,
@@ -47,23 +47,15 @@ export default function Button({
         style={{ borderColor: disabled && 'lightgrey' }}
       >
         <button
-          className={`h-10 w-10 p-3 m-1 rounded-md transition ease-in-out  ${
-            value && `bg-gradient-to-r ${colorConfig[name].gradient}`
-          } ${!disabled && 'hover:shadow-md active:shadow-inner'}`}
-          style={{
-            backgroundColor: disabled && 'lightgrey',
-            backgroundImage: disabled && 'none',
-          }}
+          className={`h-10 w-10 p-3 m-1 rounded-md transition ease-in-out ${disabled ? 'bg-gray-300' : `${
+              value && `bg-gradient-to-r ${colorConfig[name].gradient}`} hover:shadow-md active:shadow-inner`}`}
           onClick={() => handleOnClick(name)}
           disabled={disabled}
         />
       </div>
       <section className="flex flex-col">
         <p
-          className={`font-bold text-lg ${
-            value ? `${colorConfig[name].textColor}` : 'text-gray-500'
-          }`}
-          style={{ color: disabled && 'lightgrey' }}
+          className={`font-bold text-lg ${disabled ? 'text-gray-300' : `${value ? `${colorConfig[name].textColor}` : 'text-gray-500'}`}`}
         >
           {desc}
         </p>

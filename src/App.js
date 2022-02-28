@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
-import EnginePage from './components/EnginePage';
-import AboutPage from './components/AboutPage';
+import EnginePage from './pages/EnginePage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   return (

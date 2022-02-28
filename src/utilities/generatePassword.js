@@ -21,7 +21,7 @@ let generatePassword = (
   } else if (isDictOptimized) {
     password = 'z' + password;
   }
-  password = password
+  return password
     .split('')
     .map((digit, index) => {
       let replaceBank = [digit];
@@ -37,7 +37,6 @@ let generatePassword = (
       );
     })
     .join('');
-  return password;
 };
 
 export default generatePassword;

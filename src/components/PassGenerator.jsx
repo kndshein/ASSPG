@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import Button from './Button';
-import generatePassword from '../generatePassword';
-import generateGradient from '../generateGradient';
+import Checkbox from './Checkbox';
+import generatePassword from '../utilities/generatePassword';
+import generateGradient from '../utilities/generateGradient';
 import { IconContext } from 'react-icons';
 import { HiOutlineClipboardCopy } from 'react-icons/hi';
 
@@ -68,7 +68,7 @@ export default function PassGenerator() {
         Aardvark Secure Secret Password Generator
       </p>
       <div className="border-2 border-sky-400 p-2 m-4 mt-0 rounded-lg">
-        <Button
+        <Checkbox
           value={opts.isBothOptimized || !opts.isDictOptimized}
           name="isReverseOptimized"
           desc="Optimize for Reverse Dictionary Attacks"
@@ -76,7 +76,7 @@ export default function PassGenerator() {
           handleOnClick={handleOnClick}
           disabled={opts.isBothOptimized}
         />
-        <Button
+        <Checkbox
           value={opts.isDictOptimized}
           name="isDictOptimized"
           desc="Optimize for Regular Dictionary Attacks"
@@ -85,7 +85,7 @@ export default function PassGenerator() {
           disabled={opts.isBothOptimized}
         />
         <hr className="border-gray-400 m-2" />
-        <Button
+        <Checkbox
           value={opts.isBothOptimized}
           name="isBothOptimized"
           desc="Optimize for both types of Dictionary Attacks"
@@ -94,7 +94,7 @@ export default function PassGenerator() {
         />
       </div>
       <div className="border-2 border-sky-400 p-2 m-4 mt-0 rounded-lg">
-        <Button
+        <Checkbox
           value={opts.isUppercased}
           name="isUppercased"
           desc="Include Uppercase Letters"
@@ -104,7 +104,7 @@ export default function PassGenerator() {
         />
       </div>
       <div className="border-2 border-sky-400 p-2 m-4 mt-0 rounded-lg">
-        <Button
+        <Checkbox
           className="border-emerald-400"
           value={opts.isLeeted}
           name="isLeeted"
