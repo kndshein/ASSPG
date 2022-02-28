@@ -45,17 +45,17 @@ export default function Checkbox({
       <div
         className={`flex shrink-0 justify-center items-center mr-4 mt-1.5 w-14 h-14 border-4 rounded-lg dark:rounded-xl transition ease-in-out ${
           disabled
-            ? 'border-gray-300 dark:border-gray-600'
-            : `border-gray-500 dark:border-gray-200 ${colorConfig[name].borderHover}`
+            ? 'border-gray-300 dark:border-zinc-800'
+            : `border-gray-500 dark:border-gray-600 ${colorConfig[name].borderHover}`
         }`}
       >
         <button
           className={`h-10 w-10 p-3 m-1 rounded-md transition ease-in-out ${
             disabled
-              ? 'bg-gray-300 dark:bg-gray-600'
+              ? 'bg-gray-300 dark:bg-zinc-800'
               : `${
                   value && `bg-gradient-to-r ${colorConfig[name].gradient}`
-                } hover:shadow-md active:shadow-inner`
+                } hover:shadow-md active:shadow-inner dark:hover:shadow-gray-700`
           }`}
           onClick={() => handleOnClick(name)}
           disabled={disabled}
@@ -65,19 +65,27 @@ export default function Checkbox({
         <p
           className={`font-bold text-lg ${
             disabled
-              ? 'text-gray-300 dark:text-gray-600'
+              ? 'text-gray-300 dark:text-zinc-700'
               : `${
                   value
                     ? `${colorConfig[name].textColor}`
-                    : 'text-gray-500 dark:text-gray-200'
+                    : 'text-gray-500 dark:text-gray-300'
                 }`
           }`}
         >
           {desc}
         </p>
-        <p className="text-gray-400 dark:text-gray-500">{long_desc}</p>
+        <p
+          className={`${
+            disabled
+              ? 'text-gray-300 dark:text-zinc-700'
+              : 'text-gray-400 dark:text-zinc-500'
+          }`}
+        >
+          {long_desc}
+        </p>
         {example && (
-          <p className="text-gray-500 italic mt-0.5 dark:text-gray-600">
+          <p className="text-gray-500 italic mt-0.5 dark:text-gray-400">
             Examples: {example}
           </p>
         )}

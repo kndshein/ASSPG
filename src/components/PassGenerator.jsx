@@ -64,10 +64,10 @@ export default function PassGenerator() {
 
   return (
     <div className="flex flex-col max-w-2xl">
-      <p className="m-4 mb-2 mt-0 text-3xl text-center bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 font-semibold">
+      <p className="m-4 mb-2 mt-0 text-3xl text-center bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 font-semibold dark:bg-gradient-to-r from-cyan-300 dark:to-sky-400">
         Aardvark Secure Secret Password Generator
       </p>
-      <div className="border-2 border-sky-400 p-2 m-4 mt-0 rounded-lg">
+      <div className="border-2 border-sky-400 p-2 m-4 mt-0 rounded-lg dark:border-cyan-400">
         <Checkbox
           value={opts.isBothOptimized || !opts.isDictOptimized}
           name="isReverseOptimized"
@@ -84,7 +84,7 @@ export default function PassGenerator() {
           handleOnClick={handleOnClick}
           disabled={opts.isBothOptimized}
         />
-        <hr className="border-gray-400 m-2" />
+        <hr className="border-gray-400 m-2 dark:border-gray-500" />
         <Checkbox
           value={opts.isBothOptimized}
           name="isBothOptimized"
@@ -93,7 +93,7 @@ export default function PassGenerator() {
           handleOnClick={handleOnClick}
         />
       </div>
-      <div className="border-2 border-sky-400 p-2 m-4 mt-0 rounded-lg">
+      <div className="border-2 border-sky-400 p-2 m-4 mt-0 rounded-lg dark:border-cyan-400">
         <Checkbox
           value={opts.isUppercased}
           name="isUppercased"
@@ -103,7 +103,7 @@ export default function PassGenerator() {
           handleOnClick={handleOnClick}
         />
       </div>
-      <div className="border-2 border-sky-400 p-2 m-4 mt-0 rounded-lg">
+      <div className="border-2 border-sky-400 p-2 m-4 mt-0 rounded-lg dark:border-cyan-400">
         <Checkbox
           className="border-emerald-400"
           value={opts.isLeeted}
@@ -115,7 +115,7 @@ export default function PassGenerator() {
         />
       </div>
       <button
-        className={`rounded-lg m-4 mt-0 p-2 py-4 font-bold text-lg text-white transition ease-in-out hover:shadow-lg active:shadow-none active:scale-95`}
+        className={`rounded-lg m-4 mt-0 p-2 py-4 font-bold text-lg text-white transition ease-in-out hover:shadow-lg active:shadow-none active:scale-95 dark:hover:shadow-gray-800`}
         onClick={() => handleOnSubmit()}
         style={{
           backgroundColor: submitGradient.color,
@@ -124,18 +124,20 @@ export default function PassGenerator() {
       >
         Generate Password
       </button>
-      <div className="relative flex justify-center items-center h-16 w-100 rounded-lg mx-4 bg-gray-200">
-        <p className="animate-pulse text-2xl font-mono">{generatedPassword}</p>
+      <div className="relative flex justify-center items-center h-16 w-100 rounded-lg mx-4 bg-gray-200 dark:bg-gray-800">
+        <p className="animate-pulse text-2xl font-mono dark:text-white">
+          {generatedPassword}
+        </p>
         <IconContext.Provider value={{ color: 'grey', className: 'h-6 w-6' }}>
           <button
             onClick={() => navigator.clipboard.writeText(generatedPassword)}
-            className="absolute right-4 p-2 rounded-lg hover:bg-gray-100 active:bg-gray-300"
+            className="absolute right-4 p-2 rounded-lg hover:bg-gray-100 active:bg-gray-300 dark:bg-gray-900 dark:hover:bg-gray-700 dark:active:bg-gray-900"
           >
             <HiOutlineClipboardCopy className="h-100 w-100" />
           </button>
         </IconContext.Provider>
       </div>
-      <p className="ml-4 mt-1 text-left opacity-25 italic text-sm">
+      <p className="ml-4 mt-1 text-left opacity-25 italic text-sm dark:text-white">
         * Remember your password by simply memorizing it.
       </p>
     </div>
