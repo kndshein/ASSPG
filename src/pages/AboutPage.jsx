@@ -3,10 +3,10 @@ import profiles from '../aboutProfiles';
 export default function AboutPage() {
   return (
     <div className="max-w-2xl m-auto text-lg">
-      <h4 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 mb-2">
+      <h4 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 mb-2 dark:from-cyan-300 dark:to-sky-400">
         Our History
       </h4>
-      <p className="mb-8">
+      <p className="mb-8 dark:text-gray-300">
         After having our cybersecurity firm being hacked into for the fifth time
         in 3 months, we realized that using the string 'password' as our
         database's password is no longer cutting it in 2022. So, we set out on a
@@ -20,10 +20,10 @@ export default function AboutPage() {
         as not using 'password' as our master password), and we in turn provide
         them our users' data. It's a win-win!
       </p>
-      <h4 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 mb-2">
+      <h4 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 mb-2 dark:from-cyan-300 dark:to-sky-400">
         Our Product
       </h4>
-      <p className="mb-8">
+      <p className="mb-8 dark:text-gray-300">
         As an ASSPG user (ASSPG-er), you can be rest assured that you will
         receive an industry-leading secured password produced by our AI's
         artificial neural network hybrid-cloud blockchain engine. The generated
@@ -36,7 +36,7 @@ export default function AboutPage() {
         Discord server. Take care of your private systems, become an ASSPG-er
         today!
       </p>
-      <h4 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 mb-4">
+      <h4 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 mb-4 dark:from-cyan-300 dark:to-sky-400">
         Our Background
       </h4>
       <ul className="flex flex-wrap gap-6">
@@ -44,7 +44,7 @@ export default function AboutPage() {
           return (
             <li
               key={idx}
-              className="flex flex-col p-6 basis-80 bg-gray-100 rounded-lg"
+              className="flex flex-col p-6 basis-80 bg-gray-100 rounded-lg dark:bg-gray-800"
             >
               <div className="h-24 w-24 rounded-full overflow-hidden">
                 <img
@@ -53,11 +53,13 @@ export default function AboutPage() {
                   alt={content.name}
                 />
               </div>
-              <div className="text-sky-700 font-semibold text-lg mt-4">
+              <div className="text-sky-700 font-semibold text-lg mt-4 dark:text-sky-500">
                 {content.name}
               </div>
-              <div className="text-gray-400 italic">{content.position}</div>
-              <div className="text-md">{content.desc}</div>
+              <div className="text-gray-400 italic dark:text-gray-600">
+                {content.position}
+              </div>
+              <div className="text-md dark:text-gray-400">{content.desc}</div>
             </li>
           );
         })}
