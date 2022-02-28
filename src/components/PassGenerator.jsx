@@ -115,7 +115,7 @@ export default function PassGenerator() {
         />
       </div>
       <button
-        className={`rounded-lg m-4 mt-0 p-2 py-4 font-bold text-lg text-white transition ease-in-out hover:shadow-lg active:shadow-none active:scale-95 dark:hover:shadow-gray-800`}
+        className={`rounded-lg m-4 mt-0 p-2 py-4 font-bold text-xl text-white transition ease-in-out hover:shadow-lg active:shadow-none active:scale-95 dark:hover:shadow-gray-800`}
         onClick={() => handleOnSubmit()}
         style={{
           backgroundColor: submitGradient.color,
