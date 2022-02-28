@@ -12,20 +12,22 @@ function App() {
             return `uppercase ${
               isActive
                 ? 'text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500'
-                : 'text-gray-500 hover:text-gray-900'
+                : 'text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200'
             }`;
           }}
           to="/"
         >
           Engine
         </NavLink>
-        <h1 className="text-3xl font-bold text-center">ASSPG</h1>
+        <h1 className="text-3xl font-bold text-center dark:text-white">
+          ASSPG
+        </h1>
         <NavLink
           className={({ isActive }) => {
             return `uppercase ${
               isActive
                 ? 'text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500'
-                : 'text-gray-500 hover:text-gray-900'
+                : 'text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200'
             }`;
           }}
           to="/about"
