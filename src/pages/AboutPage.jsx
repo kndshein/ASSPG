@@ -2,7 +2,7 @@ import profiles from '../aboutProfiles';
 
 export default function AboutPage() {
   return (
-    <div className="max-w-2xl m-auto text-lg">
+    <div className="max-w-2xl m-auto text-lg p-4 pt-0">
       <h4 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 mb-2 dark:from-cyan-300 dark:to-sky-400">
         Our History
       </h4>
@@ -39,12 +39,12 @@ export default function AboutPage() {
       <h4 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500 mb-4 dark:from-cyan-300 dark:to-sky-400">
         Our Background
       </h4>
-      <ul className="flex flex-wrap gap-6">
+      <ul className="flex flex-wrap">
         {profiles.map((content, idx) => {
           return (
             <li
               key={idx}
-              className="flex flex-col p-6 basis-80 bg-gray-100 rounded-lg dark:bg-gray-800"
+              className="flex flex-col p-6 sm:even:mr-0 sm:odd:ml-0 mx-0 sm:mx-3 min-w-200 m-3 basis-5/12 grow bg-gray-100 rounded-lg dark:bg-gray-800"
             >
               <div className="h-24 w-24 rounded-full overflow-hidden">
                 <img
