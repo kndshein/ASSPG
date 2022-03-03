@@ -5,16 +5,17 @@ let leetSpeakList = {
   m: ['[V]', '(V)', '1v1', ']V[', '|V|', 'AA', '^^', '|Y|', 'м'],
   n: ['И', '/V', 'ท', 'п'],
   r: ['Я', '®'],
-  v: ['Ṽ', 'Ṿ', 'ⓥ']
+  v: ['Ṽ', 'Ṿ', 'ⓥ'],
 };
 
 let generatePassword = (
   isDictOptimized,
   isBothOptimized,
   isUppercased,
-  isLeeted
+  isLeeted,
+  isDoubled
 ) => {
-  let password = 'aardvark';
+  let password = isDoubled ? 'aardvarkaardvark' : 'aardvark';
   if (isBothOptimized) {
     let midAlphabet = ['m', 'n'];
     password = midAlphabet[Math.round(Math.random())] + password;

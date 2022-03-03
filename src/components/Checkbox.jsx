@@ -2,6 +2,7 @@ export default function Checkbox({
   value,
   name,
   desc,
+  price,
   long_desc,
   handleOnClick,
   disabled,
@@ -38,6 +39,12 @@ export default function Checkbox({
       gradient: 'from-lime-400 to-emerald-400',
       textColor: 'text-emerald-500',
     },
+    isDoubled: {
+      border: 'border-orange-400',
+      borderHover: 'hover:border-orange-400',
+      gradient: 'from-orange-400 to-red-400',
+      textColor: 'text-orange-500',
+    },
   };
 
   return (
@@ -73,7 +80,10 @@ export default function Checkbox({
                 }`
           }`}
         >
-          {desc}
+          {desc}{' '}
+          <span className="inline-block bg-lime-400 ml-1.5 px-1.5 pb-0.5 rounded-md text-black text-base">
+            {price}
+          </span>
         </p>
         <p
           className={`${

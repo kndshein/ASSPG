@@ -11,6 +11,7 @@ let colorChart = {
   isBothOptimized: 'rgb(167, 139, 250)',
   isUppercased: 'rgb(250, 204, 21)',
   isLeeted: 'rgb(52, 211, 153)',
+  isDoubled: 'rgb(251 146 60)',
 };
 
 export default function PassGenerator() {
@@ -19,6 +20,7 @@ export default function PassGenerator() {
     isBothOptimized: false,
     isUppercased: true,
     isLeeted: false,
+    isDoubled: false,
   });
   const [submitGradient, setSubmitGradient] = useState({
     color: 'rgb(251, 113, 133)',
@@ -29,7 +31,8 @@ export default function PassGenerator() {
       opts.isDictOptimized,
       opts.isBothOptimized,
       opts.isUppercased,
-      opts.isLeeted
+      opts.isLeeted,
+      opts.isDoubled
     )
   );
 
@@ -57,7 +60,8 @@ export default function PassGenerator() {
         opts.isDictOptimized,
         opts.isBothOptimized,
         opts.isUppercased,
-        opts.isLeeted
+        opts.isLeeted,
+        opts.isDoubled
       )
     );
   }
@@ -114,6 +118,17 @@ export default function PassGenerator() {
           handleOnClick={handleOnClick}
         />
       </div>
+      <div className="border-2 border-orange-400 p-2 m-4 mt-0 rounded-lg dark:border-orange-400">
+        <Checkbox
+          className="border-orange-400"
+          value={opts.isDoubled}
+          name="isDoubled"
+          desc="Double the Security"
+          price="$7.99"
+          long_desc="For a low cost of $7.99 biweekly subscription every month, double the 'hashing rate' of your password. Just like the Double Quarter Pounder, two Deadpool films, and at least two front teeth, things are better when they're doubled. Except condoms. Please don't double-layer your condoms."
+          handleOnClick={handleOnClick}
+        />
+      </div>
       <button
         className={`rounded-lg m-4 mt-0 p-2 py-4 font-bold text-xl text-white transition ease-in-out hover:shadow-lg active:shadow-none active:scale-95 dark:hover:shadow-gray-800`}
         onClick={() => handleOnSubmit()}
@@ -137,9 +152,15 @@ export default function PassGenerator() {
           </button>
         </IconContext.Provider>
       </div>
-      <p className="ml-4 mt-1 text-left opacity-25 italic text-sm dark:text-white">
+      <p className="ml-4 mt-2 text-left opacity-25 italic text-sm dark:text-white">
         * Remember your password by simply memorizing it.
       </p>
+      {generatedPassword && opts.isDoubled && (
+        <p className="ml-4 text-left opacity-25 italic text-sm dark:text-white">
+          ** We've been told that our developers don't know how to code a
+          shopping cart, so I guess it's on the house.
+        </p>
+      )}
     </div>
   );
 }
