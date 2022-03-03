@@ -1,4 +1,6 @@
 import profiles from '../content/aboutProfiles';
+import FAQ from '../components/FAQ';
+import FAQs from '../content/aboutFAQs';
 
 export default function AboutPage() {
   return (
@@ -39,7 +41,7 @@ export default function AboutPage() {
       <h4 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-blue-400 mb-4">
         Our Background
       </h4>
-      <ul className="flex flex-wrap">
+      <ul className="flex flex-wrap mb-8">
         {profiles.map((content, idx) => {
           return (
             <li
@@ -60,6 +62,14 @@ export default function AboutPage() {
               <div className="text-md text-gray-400">{content.desc}</div>
             </li>
           );
+        })}
+      </ul>
+      <h4 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-blue-400 mb-4">
+        Frequently Asked Questions
+      </h4>
+      <ul>
+        {FAQs.map((content, idx) => {
+          return <FAQ question={content.question} answer={content.answer} />;
         })}
       </ul>
     </div>
