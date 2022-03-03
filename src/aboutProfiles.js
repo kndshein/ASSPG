@@ -9,7 +9,7 @@ let profiles = [
     name: 'Kaung',
     position: 'CTO',
     image: 'Nick1.jpg',
-    desc: 'From years of experience as a CTO, Kaung has learned that by having unmaintainable code, he is saving the company tons of money by not having to put up security measures to guard against code theft.',
+    desc: 'From years of experience as a CTO, Kaung has learned that by having unmaintainable code, he is saving the company millions of money by not having to guard against code theft.',
   },
   {
     name: 'Paul',
@@ -45,7 +45,7 @@ let profiles = [
     name: 'Kaung',
     position: "Intern's Intern",
     image: 'Nick4.jpg',
-    desc: 'Well, somebody has to fetch coffee for the intern.',
+    desc: 'Well, someone has to fetch coffee for the intern.',
   },
 ];
 
