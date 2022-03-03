@@ -78,7 +78,7 @@ export default function Checkbox({
         >
           <span className="mr-2">{desc}</span>
           {price && (
-            <span className="inline-block bg-lime-400 px-1.5 pb-0.5 rounded-md text-black text-base">
+            <span className="inline-block px-1.5 pb-0.5 rounded-md text-black text-base bg-gradient-to-r from-lime-400 to-green-400">
               {price}
             </span>
           )}
