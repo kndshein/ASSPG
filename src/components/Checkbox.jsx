@@ -76,10 +76,12 @@ export default function Checkbox({
               : `${value ? `${colorConfig[name].textColor}` : 'text-gray-300'}`
           }`}
         >
-          {desc}{' '}
-          <span className="inline-block bg-lime-400 ml-1.5 px-1.5 pb-0.5 rounded-md text-black text-base">
-            {price}
-          </span>
+          <span className="mr-2">{desc}</span>
+          {price && (
+            <span className="inline-block bg-lime-400 px-1.5 pb-0.5 rounded-md text-black text-base">
+              {price}
+            </span>
+          )}
         </p>
         <p className={`${disabled ? 'text-zinc-700' : 'text-zinc-500'}`}>
           {long_desc}
