@@ -160,7 +160,7 @@ export default function PassGenerator() {
           name="isPowered"
           desc="Double the Processing Power"
           price="¥200"
-          long_desc="Research shows that loading icons that spin for just the right amount of time make users think the server worked hard, r('murica) = .42, p = .69. (Saysnoone at el., 420 BC) With that said, this function totally does more than adding a fake loading icon."
+          long_desc="Research shows that loading icons that spin for just the right amount of time make users think the server worked hard, r('murica) = .42, p = .69. (Saysnoone at el., 420 BC) With that said, this feature definitely does more than add a fake loading icon."
           handleOnClick={handleOnClick}
         />
       </div>
