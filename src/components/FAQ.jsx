@@ -9,7 +9,7 @@ export default function FAQ({ question, answer }) {
     setOpen(!open);
   }
   return (
-    <li className="mb-4 px-6 py-4 rounded-md bg-gray-800">
+    <li className="mb-4 px-6 py-4 pb-5 rounded-md bg-gray-800">
       <Question question={question} open={open} handleOpen={handleOpen} />
       <Answer answer={answer} open={open} />
     </li>

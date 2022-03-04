@@ -12,7 +12,7 @@ let colorChart = {
   isUppercased: 'rgb(250, 204, 21)',
   isLeeted: 'rgb(52, 211, 153)',
   isDoubled: 'rgb(251 146 60)',
-  isAddLoading: 'rgb(232 121 249)',
+  isPowered: 'rgb(232 121 249)',
 };
 
 export default function PassGenerator() {
@@ -22,7 +22,7 @@ export default function PassGenerator() {
     isUppercased: true,
     isLeeted: false,
     isDoubled: false,
-    isAddLoading: false,
+    isPowered: false,
   });
   const [submitGradient, setSubmitGradient] = useState({
     color: 'rgb(251, 113, 133)',
@@ -53,8 +53,8 @@ export default function PassGenerator() {
   }, [opts]);
 
   useEffect(() => {
-    opts.isAddLoading && setLoading(true);
-  }, [generatedPassword, opts.isAddLoading]);
+    opts.isPowered && setLoading(true);
+  }, [generatedPassword, opts.isPowered]);
 
   useEffect(() => {
     loading &&
@@ -71,7 +71,7 @@ export default function PassGenerator() {
     } else if (name === 'isReverseOptimized') {
       setOpts({ ...opts, isDictOptimized: !opts.isDictOptimized });
     } else {
-      if (name === 'isAddLoading' && !opts.isAddLoading) {
+      if (name === 'isPowered' && !opts.isPowered) {
         setLoading(true);
       }
       setOpts({ ...opts, [name]: !opts[name] });
@@ -156,11 +156,11 @@ export default function PassGenerator() {
       <div className="border-2 border-amber-400 p-2 m-4 mt-0 rounded-lg">
         <Checkbox
           className="border-orange-400"
-          value={opts.isAddLoading}
-          name="isAddLoading"
-          desc="Double the Processor"
+          value={opts.isPowered}
+          name="isPowered"
+          desc="Double the Processing Power"
           price="¥200"
-          long_desc="Research shows that loading icons which spin for just the right amount of time make users think the server worked hard, r('murica) = .42, p = .69. (Saysnoone at el., 420 BC) With that, this option does nothing except add a loading icon below."
+          long_desc="Research shows that loading icons that spin for just the right amount of time make users think the server worked hard, r('murica) = .42, p = .69. (Saysnoone at el., 420 BC) With that said, this function totally does more than adding a fake loading icon."
           handleOnClick={handleOnClick}
         />
       </div>
@@ -198,7 +198,7 @@ export default function PassGenerator() {
       <p className="ml-4 mt-2 text-left opacity-25 italic text-sm text-white">
         * Remember your password by simply memorizing it.
       </p>
-      {(opts.isDoubled || opts.isAddLoading) && (
+      {(opts.isDoubled || opts.isPowered) && (
         <p className="ml-4 text-left opacity-25 italic text-sm text-white">
           ** We've been told that our developers don't know how to code a
           shopping cart, so I guess it's on the house.
