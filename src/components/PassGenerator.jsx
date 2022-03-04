@@ -3,7 +3,7 @@ import Checkbox from './Checkbox';
 import generatePassword from '../utilities/generatePassword';
 import generateGradient from '../utilities/generateGradient';
 import { HiOutlineClipboardCopy } from 'react-icons/hi';
-import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+import { RiLoader5Fill } from 'react-icons/ri';
 
 let colorChart = {
   isReversedOptimized: 'rgb(251, 113, 133)',
@@ -54,11 +54,11 @@ export default function PassGenerator() {
 
   useEffect(() => {
     opts.isAddLoading && setLoading(true);
-  }, [generatedPassword]);
+  }, [generatedPassword, opts.isAddLoading]);
 
   useEffect(() => {
     loading &&
-      setTimeout(() => setLoading(false), (Math.random() + 0.5) * 1000);
+      setTimeout(() => setLoading(false), (Math.random() + 0.5) * 1500);
   }, [loading]);
 
   function handleOnClick(name) {
@@ -149,7 +149,7 @@ export default function PassGenerator() {
           name="isDoubled"
           desc="Double the Security"
           price="$7.99"
-          long_desc="For a low cost of $7.99 biweekly subscription every month, double the 'hashing rate' of your password. Just like the Double Quarter Pounder, two Deadpool films, and at least two front teeth, things are better when they're doubled. Except condoms. Please don't double-layer your condoms."
+          long_desc="For just $7.99 biweekly subscription renewed every month, double the 'hashing rate' of your password. Just like the Double Quarter Pounder, two Deadpool films, and at least two front teeth, things are better when they're doubled. Except condoms. Please don't double-layer your condoms."
           handleOnClick={handleOnClick}
         />
       </div>
@@ -160,7 +160,7 @@ export default function PassGenerator() {
           name="isAddLoading"
           desc="Double the Processor"
           price="¥200"
-          long_desc="For a low cost of $7.99 biweekly subscription every month, double the 'hashing rate' of your password. Just like the Double Quarter Pounder, two Deadpool films, and at least two front teeth, things are better when they're doubled. Except condoms. Please don't double-layer your condoms."
+          long_desc="Research shows that loading icons which spin for just the right amount of time make users think the server worked hard, r('murica) = .42, p = .69. (Saysnoone at el., 420 BC) With that, this option does nothing except add a loading icon below."
           handleOnClick={handleOnClick}
         />
       </div>
@@ -175,15 +175,16 @@ export default function PassGenerator() {
         Re-Generate Password
       </button>
       <div className="relative flex justify-center items-center h-16 w-100 rounded-lg mx-4 bg-gray-800">
-        {loading && (
-          <AiOutlineLoading3Quarters
-            className="animate-spin h-6 w-6"
-            style={{ color: 'white' }}
+        {loading ? (
+          <RiLoader5Fill
+            className="animate-spin h-8 w-8"
+            style={{ color: 'grey' }}
           />
+        ) : (
+          <p className="animate-pulse text-2xl font-mono text-white">
+            {generatedPassword}
+          </p>
         )}
-        <p className="animate-pulse text-2xl font-mono text-white">
-          {generatedPassword}
-        </p>
         <button
           onClick={() => navigator.clipboard.writeText(generatedPassword)}
           className="absolute right-4 p-2 rounded-lg bg-gray-900 hover:bg-gray-700 active:bg-gray-900"
