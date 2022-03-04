@@ -12,6 +12,7 @@ let colorChart = {
   isUppercased: 'rgb(250, 204, 21)',
   isLeeted: 'rgb(52, 211, 153)',
   isDoubled: 'rgb(251 146 60)',
+  isAddLoading: 'rgb(251 146 60)',
 };
 
 export default function PassGenerator() {
@@ -21,6 +22,7 @@ export default function PassGenerator() {
     isUppercased: true,
     isLeeted: false,
     isDoubled: false,
+    isAddLoading: false,
   });
   const [submitGradient, setSubmitGradient] = useState({
     color: 'rgb(251, 113, 133)',
@@ -35,6 +37,7 @@ export default function PassGenerator() {
       opts.isDoubled
     )
   );
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setSubmitGradient(generateGradient(opts, colorChart));
@@ -49,6 +52,16 @@ export default function PassGenerator() {
     );
   }, [opts]);
 
+  useEffect(() => {
+    if (opts.isAddLoading) {
+      setLoading(true);
+    }
+  }, [generatedPassword]);
+
+  useEffect(() => {
+    loading && setTimeout(() => setLoading(false), 1000);
+  }, [loading]);
+
   function handleOnClick(name) {
     if (name === 'isBothOptimized') {
       setOpts({
@@ -59,6 +72,9 @@ export default function PassGenerator() {
     } else if (name === 'isReverseOptimized') {
       setOpts({ ...opts, isDictOptimized: !opts.isDictOptimized });
     } else {
+      if (name === 'isAddLoading' && !opts.isAddLoading) {
+        setLoading(true);
+      }
       setOpts({ ...opts, [name]: !opts[name] });
     }
   }
@@ -138,6 +154,17 @@ export default function PassGenerator() {
           handleOnClick={handleOnClick}
         />
       </div>
+      <div className="border-2 border-orange-400 p-2 m-4 mt-0 rounded-lg">
+        <Checkbox
+          className="border-orange-400"
+          value={opts.isAddLoading}
+          name="isAddLoading"
+          desc="Slow Down the Process"
+          price="$7.99"
+          long_desc="For a low cost of $7.99 biweekly subscription every month, double the 'hashing rate' of your password. Just like the Double Quarter Pounder, two Deadpool films, and at least two front teeth, things are better when they're doubled. Except condoms. Please don't double-layer your condoms."
+          handleOnClick={handleOnClick}
+        />
+      </div>
       <button
         className={`rounded-lg m-4 mt-0 p-2 py-4 font-bold text-xl text-white transition ease-in-out hover:shadow-lg active:shadow-none active:scale-95 hover:shadow-gray-800`}
         onClick={() => handleOnSubmit()}
@@ -146,7 +173,8 @@ export default function PassGenerator() {
           backgroundImage: submitGradient.gradient,
         }}
       >
-        Re-generate Password
+        {loading && <span>Loading</span>}
+        Re-Generate Password
       </button>
       <div className="relative flex justify-center items-center h-16 w-100 rounded-lg mx-4 bg-gray-800">
         <p className="animate-pulse text-2xl font-mono text-white">

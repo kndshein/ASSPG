@@ -45,6 +45,12 @@ export default function Checkbox({
       gradient: 'from-orange-400 to-red-400',
       textColor: 'text-orange-500',
     },
+    isAddLoading: {
+      border: 'border-orange-400',
+      borderHover: 'hover:border-orange-400',
+      gradient: 'from-orange-400 to-red-400',
+      textColor: 'text-orange-500',
+    },
   };
 
   return (
