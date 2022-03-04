@@ -38,6 +38,15 @@ export default function PassGenerator() {
 
   useEffect(() => {
     setSubmitGradient(generateGradient(opts, colorChart));
+    setGeneratedPassword(
+      generatePassword(
+        opts.isDictOptimized,
+        opts.isBothOptimized,
+        opts.isUppercased,
+        opts.isLeeted,
+        opts.isDoubled
+      )
+    );
   }, [opts]);
 
   function handleOnClick(name) {
@@ -137,7 +146,7 @@ export default function PassGenerator() {
           backgroundImage: submitGradient.gradient,
         }}
       >
-        Generate Password
+        Re-generate Password
       </button>
       <div className="relative flex justify-center items-center h-16 w-100 rounded-lg mx-4 bg-gray-800">
         <p className="animate-pulse text-2xl font-mono text-white">
