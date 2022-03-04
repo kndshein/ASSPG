@@ -27,7 +27,7 @@ export default function AboutPage() {
       </h4>
       <p className="mb-8 text-gray-300">
         As an ASSPG user (ASSPG-er), you can be rest assured that you will
-        receive an industry-leading secured password produced by our AI's
+        receive an industry-leading secure password produced by our AI's
         artificial neural network hybrid-cloud blockchain engine. The generated
         passwords have been tested vigorously. From regression to taste tests --
         we employ the use of cutting-edge technology whenever and wherever
