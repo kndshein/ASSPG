@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Checkbox from './Checkbox';
 import generatePassword from '../utilities/generatePassword';
 import generateGradient from '../utilities/generateGradient';
-import { IconContext } from 'react-icons';
 import { HiOutlineClipboardCopy } from 'react-icons/hi';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
@@ -143,7 +142,7 @@ export default function PassGenerator() {
           handleOnClick={handleOnClick}
         />
       </div>
-      <div className="border-2 border-orange-400 p-2 m-4 mt-0 rounded-lg">
+      <div className="border-2 border-amber-400 p-2 m-4 mt-0 rounded-lg">
         <Checkbox
           className="border-orange-400"
           value={opts.isDoubled}
@@ -154,7 +153,7 @@ export default function PassGenerator() {
           handleOnClick={handleOnClick}
         />
       </div>
-      <div className="border-2 border-orange-400 p-2 m-4 mt-0 rounded-lg">
+      <div className="border-2 border-amber-400 p-2 m-4 mt-0 rounded-lg">
         <Checkbox
           className="border-orange-400"
           value={opts.isAddLoading}
@@ -177,26 +176,28 @@ export default function PassGenerator() {
       </button>
       <div className="relative flex justify-center items-center h-16 w-100 rounded-lg mx-4 bg-gray-800">
         {loading && (
-          <svg class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
-            <AiOutlineLoading3Quarters />
-          </svg>
+          <AiOutlineLoading3Quarters
+            className="animate-spin h-6 w-6"
+            style={{ color: 'white' }}
+          />
         )}
         <p className="animate-pulse text-2xl font-mono text-white">
           {generatedPassword}
         </p>
-        <IconContext.Provider value={{ color: 'grey', className: 'h-6 w-6' }}>
-          <button
-            onClick={() => navigator.clipboard.writeText(generatedPassword)}
-            className="absolute right-4 p-2 rounded-lg bg-gray-900 hover:bg-gray-700 active:bg-gray-900"
-          >
-            <HiOutlineClipboardCopy />
-          </button>
-        </IconContext.Provider>
+        <button
+          onClick={() => navigator.clipboard.writeText(generatedPassword)}
+          className="absolute right-4 p-2 rounded-lg bg-gray-900 hover:bg-gray-700 active:bg-gray-900"
+        >
+          <HiOutlineClipboardCopy
+            className="h-6 w-6"
+            style={{ color: 'grey' }}
+          />
+        </button>
       </div>
       <p className="ml-4 mt-2 text-left opacity-25 italic text-sm text-white">
         * Remember your password by simply memorizing it.
       </p>
-      {generatedPassword && opts.isDoubled && (
+      {(opts.isDoubled || opts.isAddLoading) && (
         <p className="ml-4 text-left opacity-25 italic text-sm text-white">
           ** We've been told that our developers don't know how to code a
           shopping cart, so I guess it's on the house.
