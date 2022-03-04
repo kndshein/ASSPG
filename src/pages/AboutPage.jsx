@@ -29,7 +29,7 @@ export default function AboutPage() {
         As an ASSPG user (ASSPG-er), you can be rest assured that you will
         receive an industry-leading secure password produced by our AI's
         artificial neural network hybrid-cloud blockchain engine. The generated
-        passwords have been tested vigorously. From regression to taste tests --
+        passwords have been tested vigorously. From regression to taste tests,
         we employ the use of cutting-edge technology whenever and wherever
         possible. It has been statistically proven that compared to an average
         user, ASSPG-ers' information are the least penetrated by most hacking
