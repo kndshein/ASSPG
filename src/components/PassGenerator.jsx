@@ -4,6 +4,7 @@ import generatePassword from '../utilities/generatePassword';
 import generateGradient from '../utilities/generateGradient';
 import { IconContext } from 'react-icons';
 import { HiOutlineClipboardCopy } from 'react-icons/hi';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 let colorChart = {
   isReversedOptimized: 'rgb(251, 113, 133)',
@@ -12,7 +13,7 @@ let colorChart = {
   isUppercased: 'rgb(250, 204, 21)',
   isLeeted: 'rgb(52, 211, 153)',
   isDoubled: 'rgb(251 146 60)',
-  isAddLoading: 'rgb(251 146 60)',
+  isAddLoading: 'rgb(232 121 249)',
 };
 
 export default function PassGenerator() {
@@ -53,13 +54,12 @@ export default function PassGenerator() {
   }, [opts]);
 
   useEffect(() => {
-    if (opts.isAddLoading) {
-      setLoading(true);
-    }
+    opts.isAddLoading && setLoading(true);
   }, [generatedPassword]);
 
   useEffect(() => {
-    loading && setTimeout(() => setLoading(false), 1000);
+    loading &&
+      setTimeout(() => setLoading(false), (Math.random() + 0.5) * 1000);
   }, [loading]);
 
   function handleOnClick(name) {
@@ -159,8 +159,8 @@ export default function PassGenerator() {
           className="border-orange-400"
           value={opts.isAddLoading}
           name="isAddLoading"
-          desc="Slow Down the Process"
-          price="$7.99"
+          desc="Double the Processor"
+          price="¥200"
           long_desc="For a low cost of $7.99 biweekly subscription every month, double the 'hashing rate' of your password. Just like the Double Quarter Pounder, two Deadpool films, and at least two front teeth, things are better when they're doubled. Except condoms. Please don't double-layer your condoms."
           handleOnClick={handleOnClick}
         />
@@ -173,10 +173,14 @@ export default function PassGenerator() {
           backgroundImage: submitGradient.gradient,
         }}
       >
-        {loading && <span>Loading</span>}
         Re-Generate Password
       </button>
       <div className="relative flex justify-center items-center h-16 w-100 rounded-lg mx-4 bg-gray-800">
+        {loading && (
+          <svg class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
+            <AiOutlineLoading3Quarters />
+          </svg>
+        )}
         <p className="animate-pulse text-2xl font-mono text-white">
           {generatedPassword}
         </p>
