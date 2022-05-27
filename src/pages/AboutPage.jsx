@@ -23,13 +23,13 @@ export default function AboutPage() {
         Our Product
       </h4>
       <p className="mb-8 text-gray-300">
-        As an ASSPG (/æsˈpɛgər/) user, you can be rest assured that you will receive an industry-leading
-        secure password produced by our AI's artificial neural network hybrid-cloud blockchain engine. The
-        generated passwords have been tested vigorously. From regression to taste tests, we employ the use of
-        cutting-edge technology whenever and wherever possible. It has been statistically proven that compared
-        to an average user, ASSPG-ers' information are the least penetrated by most hacking methods. Once
-        you've been onboarded as an ASSPG-er, you will not only receive a lifetime of backend support, but
-        also obtain access to our Discord server. Take care of your private systems, become an ASSPG-er today!
+        As an ASSPG user, you can be rest assured that you will receive an industry-leading secure password
+        produced by our AI's artificial neural network hybrid-cloud blockchain engine. The generated passwords
+        have been tested vigorously. From regression to taste tests, we employ the use of cutting-edge
+        technology whenever and wherever possible. It has been statistically proven that compared to an
+        average user, ASSPG-ers' information are the least penetrated by most hacking methods. Once you've
+        been onboarded as an ASSPG-er, you will not only receive a lifetime of backend support, but also
+        obtain access to our Discord server. Take care of your private systems, become an ASSPG-er today!
       </p>
       <h4 className="text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-blue-400 mb-4">
         Our Background
