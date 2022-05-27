@@ -57,8 +57,7 @@ export default function PassGenerator() {
   }, [generatedPassword, opts.isPowered]);
 
   useEffect(() => {
-    loading &&
-      setTimeout(() => setLoading(false), (Math.random() + 0.5) * 1500);
+    loading && setTimeout(() => setLoading(false), (Math.random() + 0.5) * 1500);
   }, [loading]);
 
   function handleOnClick(name) {
@@ -149,7 +148,7 @@ export default function PassGenerator() {
           name="isDoubled"
           desc="Double the Security"
           price="$7.99"
-          long_desc="For just $7.99 biweekly subscription renewed every month, double the 'hashing rate' of your password. Just like the Double Quarter Pounder, two Deadpool films, and at least two front teeth, things are better when they're doubled. Except condoms. Please don't double-layer your condoms."
+          long_desc="For just $7.99 biweekly subscription renewed every month, double the 'hashing rate' of your password. Just like the Double Quarter Pounder, two Deadpool films, and at least two front teeth, things are better when they're doubled."
           handleOnClick={handleOnClick}
         />
       </div>
@@ -176,23 +175,15 @@ export default function PassGenerator() {
       </button>
       <div className="relative flex justify-center items-center h-16 w-100 rounded-lg mx-4 bg-gray-800">
         {loading ? (
-          <RiLoader5Fill
-            className="animate-spin h-8 w-8"
-            style={{ color: 'grey' }}
-          />
+          <RiLoader5Fill className="animate-spin h-8 w-8" style={{ color: 'grey' }} />
         ) : (
-          <p className="animate-pulse text-2xl font-mono text-white">
-            {generatedPassword}
-          </p>
+          <p className="animate-pulse text-2xl font-mono text-white">{generatedPassword}</p>
         )}
         <button
           onClick={() => navigator.clipboard.writeText(generatedPassword)}
           className="absolute right-4 p-2 rounded-lg bg-gray-900 hover:bg-gray-700 active:bg-gray-900"
         >
-          <HiOutlineClipboardCopy
-            className="h-6 w-6"
-            style={{ color: 'grey' }}
-          />
+          <HiOutlineClipboardCopy className="h-6 w-6" style={{ color: 'grey' }} />
         </button>
       </div>
       <p className="ml-4 mt-2 text-left opacity-25 italic text-sm text-white">
@@ -200,8 +191,8 @@ export default function PassGenerator() {
       </p>
       {(opts.isDoubled || opts.isPowered) && (
         <p className="ml-4 text-left opacity-25 italic text-sm text-white">
-          ** We've been told that our developers don't know how to code a
-          shopping cart, so I guess it's on the house.
+          ** We've been told that our developers don't know how to code a shopping cart, so I guess it's on
+          the house.
         </p>
       )}
     </div>
