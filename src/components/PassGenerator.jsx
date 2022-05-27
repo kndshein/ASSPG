@@ -53,11 +53,7 @@ export default function PassGenerator() {
   }, [opts]);
 
   useEffect(() => {
-    opts.isPowered && setLoading(true);
-  }, [generatedPassword, opts.isPowered]);
-
-  useEffect(() => {
-    loading && setTimeout(() => setLoading(false), (Math.random() + 0.5) * 1500);
+    loading && setTimeout(() => setLoading(false), (Math.random() + 0.5) * 750);
   }, [loading]);
 
   function handleOnClick(name) {
@@ -78,6 +74,7 @@ export default function PassGenerator() {
   }
 
   function handleOnSubmit() {
+    opts.isPowered && setLoading(true);
     setGeneratedPassword(
       generatePassword(
         opts.isDictOptimized,
@@ -159,7 +156,7 @@ export default function PassGenerator() {
           name="isPowered"
           desc="Double the Processing Power"
           price="¥200"
-          long_desc="Research shows that loading icons that spin for just the right amount of time make users think the server worked hard, r('murica) = .42, p = .69. (Saysnoone at el., 420 BC) This feature definitely doesn't just render a fake loading icon. How dare you accuse us?"
+          long_desc="Research shows that loading icons that spin for just the right amount of time make users think the server worked hard, r('murica) = .42, p = .69. (Saysnoone at el., 420 BC) Anyway, this feature definitely doesn't just render a fake loading icon, why do you ask?"
           handleOnClick={handleOnClick}
         />
       </div>
